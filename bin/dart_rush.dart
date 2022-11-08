@@ -1,5 +1,4 @@
-import 'dart:developer';
-import 'package:dart_rush/dart_rush.dart' as dart_rush;
+import 'solid/open_closed.dart';
 import 'solid/order_check.dart';
 
 void main(List<String> arguments) {
@@ -15,7 +14,9 @@ void main(List<String> arguments) {
       "S.O.L.I.D. STANDS FOR:\nS — Single responsibility principle \nO — Open closed principle \nL — Liskov substitution principle \nI — Interface segregation principle \nD — Dependency Inversion principle");
 
 // S — Single responsibility principle
-  checkOut();
+  // checkOut();
+// O — Open closed principle
+  openClosedPrinciplesCheckOut();
 }
 
 checkOut() {
@@ -33,4 +34,33 @@ checkOut() {
   rawOrder.shippingPrice = 5;
   rawOrder.calculateOrder();
   EmailOrder.sendEmail();
+}
+
+openClosedPrinciplesCheckOut() {
+// O — Open closed principle
+// Objects or entities should be open for extension, but closed for modification.
+// meaning that a class should have only one job.
+
+  print(
+      "\nO — Open closed principle \nObjects or entities should be open for extension, but closed for modification.\nThis simply means that a class should be easily extendable without modifying the class itself.\n");
+
+  final openOrder = CustomerInfo();
+  openOrder.totalAmount = 100;
+  openOrder.taxPercentage = 0.7;
+  openOrder.tip = 9;
+  openOrder.shippingPrice = 5;
+  openOrder.calculateOrder();
+  EmailOrder.sendEmail();
+  print("Balance => ${openOrder.balance}");
+
+  final circle = Circle(radius: 5);
+  final square = Square(length: 5);
+  final rectangle = Rectangle(height: 5, width: 6);
+
+  final area = AreaCalculation(shape: circle);
+  final areaOfSquare = AreaCalculation(shape: square);
+  final areaOfRectangle = AreaCalculation(shape: rectangle);
+  area.calculateArea();
+  areaOfSquare.calculateArea();
+  areaOfRectangle.calculateArea();
 }

@@ -1,5 +1,3 @@
-import 'dart:ffi';
-
 class OrderCheck {
   num? totalAmount;
   num? taxPercentage;
