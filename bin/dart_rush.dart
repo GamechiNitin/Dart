@@ -1,3 +1,4 @@
+import 'solid/liskov_substitution.dart';
 import 'solid/open_closed.dart';
 import 'solid/order_check.dart';
 
@@ -15,8 +16,12 @@ void main(List<String> arguments) {
 
 // S — Single responsibility principle
   // checkOut();
+
 // O — Open closed principle
-  openClosedPrinciplesCheckOut();
+  // openClosedPrinciplesCheckOut();
+
+// L — Liskov substitution principle
+  liskovSubsitutionCheckOut();
 }
 
 checkOut() {
@@ -63,4 +68,20 @@ openClosedPrinciplesCheckOut() {
   area.calculateArea();
   areaOfSquare.calculateArea();
   areaOfRectangle.calculateArea();
+}
+
+liskovSubsitutionCheckOut() {
+// L — Liskov substitution principle
+//Let q(x) be a property provable about objects of x of type T. Then q(y) should be provable for objects y of type S where S is a subtype of T.
+
+// All this is stating is that every subclass/derived class should be substitutable for their base/parent class.
+
+  print(
+      "\nL — Liskov substitution principle \nAll this is stating is that every subclass/derived class should be substitutable for their base/parent class.\n");
+
+  final squareLiskov = RectangleLiskov();
+  squareLiskov.height = 300;
+  squareLiskov.width = 500;
+  print(squareLiskov.height);
+  print(squareLiskov.width);
 }
