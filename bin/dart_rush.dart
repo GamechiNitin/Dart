@@ -1,3 +1,4 @@
+import 'solid/interface_segeration.dart';
 import 'solid/liskov_substitution.dart';
 import 'solid/open_closed.dart';
 import 'solid/order_check.dart';
@@ -21,7 +22,10 @@ void main(List<String> arguments) {
   // openClosedPrinciplesCheckOut();
 
 // L — Liskov substitution principle
-  liskovSubsitutionCheckOut();
+  // liskovSubsitutionCheckOut();
+
+// I — Interface segregation principle
+  interfaceSegrationCheckOut();
 }
 
 checkOut() {
@@ -84,4 +88,16 @@ liskovSubsitutionCheckOut() {
   squareLiskov.width = 500;
   print(squareLiskov.height);
   print(squareLiskov.width);
+}
+
+interfaceSegrationCheckOut() {
+// I — Interface segregation principle
+// A client should never be forced to implement an interface that it doesn’t use or clients shouldn’t be forced to depend on methods they do not use.
+  print(
+      "\nI — Interface segregation principle \nA client should never be forced to implement an interface \nthat it doesn’t use or clients shouldn’t be forced to \ndepend on methods they do not use.\n");
+
+  final bird = Bird();
+  final dog = Dog();
+  bird.fly();
+  dog.eat();
 }
