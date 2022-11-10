@@ -1,18 +1,18 @@
 import 'myiterator.dart';
 
 class BrowserHistory {
-  final List<int> _ulrs = [];
+  final List<String> _ulrs = [];
 
-  push(int url) {
+  push(String url) {
     _ulrs.add(url);
   }
 
-  int pop() {
+  String pop() {
     return _ulrs.removeLast();
   }
 
-  MyIterator<int> createIterator() {
-    return ListIterator<int>(this);
+  MyIterator<String> createIterator() {
+    return StringIterator<String>(this);
   }
 }
 
@@ -36,6 +36,7 @@ class ListIterator<T> implements MyIterator<T> {
     index++;
   }
 }
+// ---------- String Iterator ------------
 
 class StringIterator<T> implements MyIterator<T> {
   final BrowserHistory history;
