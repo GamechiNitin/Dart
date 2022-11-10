@@ -1,3 +1,4 @@
+import 'solid/dependency_inversion.dart';
 import 'solid/interface_segeration.dart';
 import 'solid/liskov_substitution.dart';
 import 'solid/open_closed.dart';
@@ -25,7 +26,9 @@ void main(List<String> arguments) {
   // liskovSubsitutionCheckOut();
 
 // I — Interface segregation principle
-  interfaceSegrationCheckOut();
+  // interfaceSegrationCheckOut();
+// D — Dependency Inversion principle
+  dependencyInversionCheckOut();
 }
 
 checkOut() {
@@ -100,4 +103,15 @@ interfaceSegrationCheckOut() {
   final dog = Dog();
   bird.fly();
   dog.eat();
+}
+
+dependencyInversionCheckOut() {
+// D — Dependency Inversion principle
+// A client should never be forced to implement an interface that it doesn’t use or clients shouldn’t be forced to depend on methods they do not use.
+  print(
+      "\nI — Dependency Inversion Principle \nEntities must depend on abstractions not on concretions. \nIt states that the high level module must not depend on the low level module, \nbut they should depend on abstractions.\n");
+
+  final service = Service();
+  service.connection = MyDBConnection();
+  service.attach();
 }
